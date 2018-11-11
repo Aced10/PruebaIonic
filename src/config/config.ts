@@ -1,3 +1,3 @@
 export const ENV = {
-  API_ENDPOINT: 'https://swapi.co/api/'
+  API_ENDPOINT: 'https://swapi.co/api'
 };

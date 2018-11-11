@@ -7,12 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>films</ion-title>
+    <ion-title>Películas</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <button ion-item *ngFor="let film of films">
+      {{film.title}}
+      <ion-list>
+        <button ion-item *ngFor="let character of film.characters">
+          {{character}}
+        </button>
+      </ion-list>
+    </button>
+  </ion-list>
 </ion-content>

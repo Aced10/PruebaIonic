@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ApiService } from "../../providers/services/api";
+import { ApiProvider } from "../../providers/services/api";
 
 /**
  * Generated class for the FilmsPage page.
@@ -16,11 +16,17 @@ import { ApiService } from "../../providers/services/api";
 })
 export class FilmsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api: ApiService) {
-  }
+  films: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public provider: ApiProvider) {  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FilmsPage');
+    this.provider.films().subscribe(
+      (response:any)=>{
+        this.films = response.results;
+      },
+      (error) => console.log(error)
+    );
   }
 
 }

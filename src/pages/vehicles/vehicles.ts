@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ApiProvider } from "../../providers/services/api";
 /**
  * Generated class for the VehiclesPage page.
  *
@@ -15,11 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class VehiclesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  vehicles: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public provider: ApiProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad VehiclesPage');
+    this.provider.vehicles().subscribe(
+      (response:any)=>{
+        this.vehicles = response.results;
+      },
+      (error) => console.log(error)
+    );
   }
 
 }

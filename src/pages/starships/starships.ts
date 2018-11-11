@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ApiProvider } from "../../providers/services/api";
 /**
  * Generated class for the StarshipsPage page.
  *
@@ -15,11 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StarshipsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  starships: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public provider: ApiProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StarshipsPage');
+    this.provider.starships().subscribe(
+      (response:any)=>{
+        this.starships = response.results;
+      },
+      (error) => console.log(error)
+    );
   }
 
 }
