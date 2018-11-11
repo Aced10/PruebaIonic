@@ -14,14 +14,24 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <button ion-item *ngFor="let film of films">
+  <ion-list-header *ngFor="let film of films; let i = index" no-lines no-padding>
+    <button ion-item (click)="toggleSection(i)"  [ngClass]="{'section-active': film.open, 'section': !film.open}">
+      <ion-icon item-left name="arrow-forward" *ngIf="!film.open"></ion-icon>
+      <ion-icon item-left name="arrow-down" *ngIf="film.open"></ion-icon>
       {{film.title}}
-      <ion-list>
-        <button ion-item *ngFor="let character of film.characters">
-          {{character}}
-        </button>
-      </ion-list>
     </button>
-  </ion-list>
+
+    <ion-list *ngIf="film.characters && film.open" no-lines>
+      <!-- Second Level -->
+      <ion-list-header *ngFor="let character of film.characters; let j = index" no-padding>
+        <!-- Toggle Button -->
+        <button ion-item (click)="detailCharacter(i, j)"  class="character" detail-none>
+          <ion-icon item-left name="contacts"></ion-icon>
+          {{ character.name }}
+        </button>
+      </ion-list-header>
+    </ion-list>
+
+  </ion-list-header>
+
 </ion-content>

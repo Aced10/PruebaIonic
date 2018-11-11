@@ -21,8 +21,8 @@ export class ApiProvider {
     return this.http.get(url);
   }
 
-  people() {
-    let url: string = this.baseUrl + '/people/';
+  people(public id: number) {
+    let url: string = this.baseUrl + '/people/'+id;
     return this.http.get(url);
   }
 
