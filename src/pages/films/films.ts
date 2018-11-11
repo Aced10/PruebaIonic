@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ModalOptions } from 'ionic-angular';
 import { ApiProvider } from "../../providers/services/api";
 
 /**
@@ -18,12 +18,11 @@ export class FilmsPage {
 
   films: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public provider: ApiProvider) {  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public provider: ApiProvider, private modal: ModalController) {}
 
   ionViewDidLoad() {
 
     let regex = /(\d+)/g;
-
 
     this.provider.films().subscribe(
       (response:any)=>{
@@ -31,7 +30,6 @@ export class FilmsPage {
           let auxCharacters = [];
           film.characters.map(people => {
             let id = people.toString().match(regex);
-
             this.provider.people(id).subscribe(
               (character:any)=>{
                 auxCharacters.push(character);
@@ -46,7 +44,6 @@ export class FilmsPage {
           };
           return mapFilm;
         });
-
         this.films = result;
       },
       (error) => console.log(error)
@@ -59,6 +56,24 @@ export class FilmsPage {
 
   detailCharacter(i, j) {
     //this.films[i].characters[j] = !this.films[i].characters[j];
+    let modalOptions: ModalOptions = {
+      showBackdrop: false,
+      enableBackdropDismiss: false
+    };
+
+    let dataCharacter = {
+      name: this.films[i].characters[j].name,
+      height: this.films[i].characters[j].height,
+      mass: this.films[i].characters[j].mass,
+      hair_color: this.films[i].characters[j].hair_color,
+      skin_color: this.films[i].characters[j].skin_color,
+      eye_color: this.films[i].characters[j].eye_color,
+      birth_year: this.films[i].characters[j].birth_year,
+      gender: this.films[i].characters[j].gender
+    };
+
+    const modalCharacter = this.modal.create('DetailModalPage', { data: dataCharacter }, modalOptions);
+    modalCharacter.present();
   }
 }
 

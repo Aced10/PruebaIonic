@@ -13,7 +13,7 @@ export class ApiProvider {
   private baseUrl: string = ENV.API_ENDPOINT;
 
   constructor(public http: HttpClient) {
-    console.log('Hello RestProvider Provider');
+
   }
 
   films() {
@@ -21,18 +21,18 @@ export class ApiProvider {
     return this.http.get(url);
   }
 
-  people(public id: number) {
+  people(id: number) {
     let url: string = this.baseUrl + '/people/'+id;
     return this.http.get(url);
   }
 
-  starships() {
-    let url: string = this.baseUrl + '/starships/';
+  starships(page: number) {
+    let url: string = this.baseUrl + '/starships/?page='+page;
     return this.http.get(url);
   }
 
-  vehicles() {
-    let url: string = this.baseUrl + '/vehicles/';
+  vehicles(page: number) {
+    let url: string = this.baseUrl + '/vehicles/?page='+page;
     return this.http.get(url);
   }
 }

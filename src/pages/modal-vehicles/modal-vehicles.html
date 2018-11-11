@@ -1,0 +1,44 @@
+<!--
+  Generated template for the ModalVehiclesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+</ion-header>
+
+<ion-content padding>
+  <h3 align="center">Detalle {{data.type}}</h3>
+  <form (ngSubmit)="closeModal()">
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-label>{{data.name}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Modelo:</ion-label>
+      <ion-label>{{data.model}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fabricante:</ion-label>
+      <ion-label>{{data.manufacturer}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Costo:</ion-label>
+      <ion-label>{{data.cost_in_credits}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Longitud:</ion-label>
+      <ion-label>{{data.length}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Velocidad maxima:</ion-label>
+      <ion-label>{{data.max_atmosphering_speed}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Número pasajeros:</ion-label>
+      <ion-label>{{data.passengers}}</ion-label>
+    </ion-item>
+    <button ion-button type="submit" block>Cerrar</button>
+  </form>
+</ion-content>

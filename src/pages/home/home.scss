@@ -1,3 +1,13 @@
 page-home {
-
+  text-align: center;
+  .main {
+    background: url('../../assets/imgs/Fondo.svg');
+    background-color: #fff035;
+    background-position: center center;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    background-clip: content-box;
+    overflow: hidden;
+    top: 0 !important;
+  }
 }

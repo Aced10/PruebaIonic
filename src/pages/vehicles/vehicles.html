@@ -14,9 +14,15 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <button ion-item *ngFor="let vehicle of vehicles">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngFor="let vehicle of vehicles; let i = index">
+    <button ion-item  (click)="detailVehicle(i)">
       {{vehicle.name}}
     </button>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="getMore($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

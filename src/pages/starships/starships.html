@@ -14,9 +14,15 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <button ion-item *ngFor="let starship of starships">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngFor="let starship of starships; let i = index">
+    <button ion-item (click)="detailStarship (i)" >
       {{starship.name}}
     </button>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="getMore($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

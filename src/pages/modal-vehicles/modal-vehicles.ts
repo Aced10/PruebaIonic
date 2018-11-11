@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 
 /**
- * Generated class for the DetailModalPage page.
+ * Generated class for the ModalVehiclesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,10 +10,10 @@ import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-detail-modal',
-  templateUrl: 'detail-modal.html',
+  selector: 'page-modal-vehicles',
+  templateUrl: 'modal-vehicles.html',
 })
-export class DetailModalPage {
+export class ModalVehiclesPage {
 
   data: any;
   constructor(private navParams: NavParams, private view: ViewController) {
