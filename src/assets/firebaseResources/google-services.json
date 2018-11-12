@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "446053764385",
+    "firebase_url": "https://pruebaionic-b5dea.firebaseio.com",
+    "project_id": "pruebaionic-b5dea",
+    "storage_bucket": "pruebaionic-b5dea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446053764385:android:cccbb2b2fa0081c6",
+        "android_client_info": {
+          "package_name": "com.ace.pruebaionic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446053764385-nra97p311jbm9q44ij0n273fdvv19clf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACsRdrdolbrGY9n3jTay6dRlFJzAbPu-I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
