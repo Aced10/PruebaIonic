@@ -2,12 +2,21 @@ page-home {
   text-align: center;
   .main {
     background: url('../../assets/imgs/Fondo.svg');
-    background-color: #fff035;
-    background-position: center center;
+    background-color: #ffffff;
     background-size: 100% auto;
     background-attachment: fixed;
     background-clip: content-box;
+    max-height: 100%;
     overflow: hidden;
     top: 0 !important;
   }
+  .credits {
+    color: #fec423;
+    text-align: center;
+    padding-top: 20%;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+  }
+
 }

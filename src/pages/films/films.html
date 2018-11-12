@@ -13,9 +13,9 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list-header *ngFor="let film of films; let i = index" no-lines no-padding>
-    <button ion-item (click)="toggleSection(i)"  [ngClass]="{'section-active': film.open, 'section': !film.open}">
+<ion-content class="main" padding>
+  <ion-list-header class="main" *ngFor="let film of films; let i = index" no-lines no-padding>
+    <button class="card" ion-item (click)="toggleSection(i)"  [ngClass]="{'section-active': film.open, 'section': !film.open}">
       <ion-icon item-left name="arrow-forward" *ngIf="!film.open"></ion-icon>
       <ion-icon item-left name="arrow-down" *ngIf="film.open"></ion-icon>
       {{film.title}}
@@ -26,7 +26,7 @@
       <ion-list-header *ngFor="let character of film.characters; let j = index" no-padding>
         <!-- Toggle Button -->
         <button ion-item (click)="detailCharacter(i, j)"  class="character" detail-none>
-          <ion-icon item-left name="contacts"></ion-icon>
+          <ion-icon item-left name="person"></ion-icon>
           {{ character.name }}
         </button>
       </ion-list-header>
